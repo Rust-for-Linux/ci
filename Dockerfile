@@ -48,10 +48,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y update \
         opensbi \
         python3 \
     && rm -r /var/lib/apt/lists/* \
-    && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- \
+    && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | RUSTUP_DIST_SERVER=https://dev-static.rust-lang.org sh -s -- \
         -y \
         --no-modify-path \
-        --default-toolchain 1.61.0 \
+        --default-toolchain 1.62.0 \
         --profile minimal \
         --component rust-src \
         --component rustfmt \
