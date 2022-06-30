@@ -51,7 +51,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y update \
     && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- \
         -y \
         --no-modify-path \
-        --default-toolchain 1.61.0 \
+        --default-toolchain 1.62.0 \
         --profile minimal \
         --component rust-src \
         --component rustfmt \
