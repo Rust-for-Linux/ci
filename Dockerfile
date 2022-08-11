@@ -1,4 +1,4 @@
-FROM ubuntu:21.10 AS builder
+FROM ubuntu:22.04 AS builder
 COPY busybox.config .
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
@@ -19,7 +19,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y update \
     && make CROSS_COMPILE=powerpc64le-linux-gnu- -j$(nproc) busybox && mv busybox ../busybox-ppc64le \
     && make CROSS_COMPILE=riscv64-linux-gnu-     -j$(nproc) busybox && mv busybox ../busybox-riscv64
 
-FROM ubuntu:21.10
+FROM ubuntu:22.04
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
         ca-certificates \
