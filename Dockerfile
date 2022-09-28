@@ -47,6 +47,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y update \
         qemu-system-riscv64 \
         opensbi \
         python3 \
+        libssl-dev \
     && rm -r /var/lib/apt/lists/* \
     && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- \
         -y \
