@@ -48,15 +48,5 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y update \
         opensbi \
         python3 \
         libssl-dev \
-    && rm -r /var/lib/apt/lists/* \
-    && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- \
-        -y \
-        --no-modify-path \
-        --default-toolchain 1.71.0 \
-        --profile minimal \
-        --component rust-src \
-        --component rustfmt \
-        --component clippy \
-    && $HOME/.cargo/bin/cargo install --locked --version 0.56.0 bindgen \
-    && rm -r $HOME/.cargo/registry
+    && rm -r /var/lib/apt/lists/*
 COPY --from=builder busybox-* /root/
